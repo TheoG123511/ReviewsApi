@@ -1,0 +1,37 @@
+{% extends 'admin/change_form.html' %}
+{% load static %}
+{% block after_related_objects %}
+    <div>
+        <label for="generateKey">Générer une clef d'api : </label>
+        <input type="text" id="generateKey" value="" disabled>
+        <a href="javascript:void(0);" onclick="getNewApiKey(64);" style="margin-right: 10px;margin-left: 10px;">Générer</a>
+        <a href="javascript:void(0);" onclick="changeKey()" style="margin-right: 10px;">Remplacer</a>
+        <a href="javascript:void(0);" onclick="copyToClipboard('generateKey')">Copier</a>
+    </div>
+    <script>
+        function getNewApiKey(length) {
+            let result = '';
+            let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let charactersLength = characters.length;
+            for(let i=0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            console.log(result);
+            document.getElementById('generateKey').value = result;
+        }
+        function changeKey() {
+            let newKey = document.getElementById('generateKey').value;
+            if (newKey.length) {
+                document.getElementById('id_api_key').value = newKey;
+            }
+        }
+        function copyToClipboard(id) {
+          var copyText = document.getElementById(id);
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+          //alert("Copied the text: " + copyText.value);
+        }
+
+    </script>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'admin/change_form.html' %}
+{% load static %}
+{% block after_related_objects %}
+    {% if object_id %}
+    <div style="text-align: center;">
+    {% if data %}
+        <span class="badge badge--danger" style="font: 25px Arial;">Cette IP est bannie !</span>
+    {% else %}
+        <span class="badge badge--success" style="font: 25px Arial;">L'IP n'est pas bannie</span>
+    {% endif %}
+    </div>
+    {% endif %}
+{% endblock %}
