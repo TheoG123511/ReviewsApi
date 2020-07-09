@@ -129,7 +129,7 @@ STATIC_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), "static")
 REST_FRAMEWORK = {
     'PAGINATE_BY': 10,                 # Default to 10
     'PAGINATE_BY_PARAM': 'page_size',  # Allow client to override, using `?page_size=xxx`.
-    'MAX_PAGINATE_BY': 3             # Maximum limit allowed when using `?page_size=xxx`.
+    'MAX_PAGINATE_BY': 50             # Maximum limit allowed when using `?page_size=xxx`.
 }
 
 CORS_ORIGIN_ALLOW_ALL = True  # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
