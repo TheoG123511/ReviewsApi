@@ -19,3 +19,7 @@ Il ne faut pas oublier de changer le domain dans les variables CORS_ORIGIN_WHITE
 # CORS_ALLOW_CREDENTIALS = True
 # CORS_ORIGIN_WHITELIST = ['http://localhost:8080', ]
 # CORS_ORIGIN_REGEX_WHITELIST = ['http://localhost:8080', ]
+
+# Fichier statique
+Il faut supprimer le contenu du dossier "static" (ReviewsApi/static) puis lancer la commande :<br/>
+python manage.py collectstatic
