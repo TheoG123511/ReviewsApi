@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 09 juil. 2020 à 10:48
+-- Généré le : jeu. 09 juil. 2020 à 11:47
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.2.29
 
@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `reviews`
 --
-CREATE DATABASE IF NOT EXISTS `reviews2` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `reviews2`;
+CREATE DATABASE IF NOT EXISTS `reviews` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `reviews`;
 
 -- --------------------------------------------------------
 
@@ -59,52 +59,6 @@ CREATE TABLE `auth_permission` (
   `codename` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `auth_permission`
---
-
-INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALUES
-(1, 'Can add log entry', 1, 'add_logentry'),
-(2, 'Can change log entry', 1, 'change_logentry'),
-(3, 'Can delete log entry', 1, 'delete_logentry'),
-(4, 'Can view log entry', 1, 'view_logentry'),
-(5, 'Can add permission', 2, 'add_permission'),
-(6, 'Can change permission', 2, 'change_permission'),
-(7, 'Can delete permission', 2, 'delete_permission'),
-(8, 'Can view permission', 2, 'view_permission'),
-(9, 'Can add group', 3, 'add_group'),
-(10, 'Can change group', 3, 'change_group'),
-(11, 'Can delete group', 3, 'delete_group'),
-(12, 'Can view group', 3, 'view_group'),
-(13, 'Can add user', 4, 'add_user'),
-(14, 'Can change user', 4, 'change_user'),
-(15, 'Can delete user', 4, 'delete_user'),
-(16, 'Can view user', 4, 'view_user'),
-(17, 'Can add content type', 5, 'add_contenttype'),
-(18, 'Can change content type', 5, 'change_contenttype'),
-(19, 'Can delete content type', 5, 'delete_contenttype'),
-(20, 'Can view content type', 5, 'view_contenttype'),
-(21, 'Can add session', 6, 'add_session'),
-(22, 'Can change session', 6, 'change_session'),
-(23, 'Can delete session', 6, 'delete_session'),
-(24, 'Can view session', 6, 'view_session'),
-(25, 'Can add BlackList', 7, 'add_blacklist'),
-(26, 'Can change BlackList', 7, 'change_blacklist'),
-(27, 'Can delete BlackList', 7, 'delete_blacklist'),
-(28, 'Can view BlackList', 7, 'view_blacklist'),
-(29, 'Can add IpList', 8, 'add_iplist'),
-(30, 'Can change IpList', 8, 'change_iplist'),
-(31, 'Can delete IpList', 8, 'delete_iplist'),
-(32, 'Can view IpList', 8, 'view_iplist'),
-(33, 'Can add Reviews', 9, 'add_reviews'),
-(34, 'Can change Reviews', 9, 'change_reviews'),
-(35, 'Can delete Reviews', 9, 'delete_reviews'),
-(36, 'Can view Reviews', 9, 'view_reviews'),
-(37, 'Can add DomainName', 10, 'add_domainname'),
-(38, 'Can change DomainName', 10, 'change_domainname'),
-(39, 'Can delete DomainName', 10, 'delete_domainname'),
-(40, 'Can view DomainName', 10, 'view_domainname');
-
 -- --------------------------------------------------------
 
 --
@@ -124,13 +78,6 @@ CREATE TABLE `auth_user` (
   `is_active` tinyint(1) NOT NULL,
   `date_joined` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `auth_user`
---
-
-INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$180000$T5wWBbPrgRBF$qwRE+6p7GHb7WLXblKlwt6SBsZySwXCHf+meyOQiu9Q=', '2020-07-06 12:14:43.200199', 1, 'theoGaillard', '', '', 'theo.g.31@free.fr', 1, 1, '2020-07-05 16:23:24.751771');
 
 -- --------------------------------------------------------
 
@@ -173,65 +120,6 @@ CREATE TABLE `django_admin_log` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `django_admin_log`
---
-
-INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
-(1, '2020-07-05 16:24:11.356575', '1', '127.0.0.1', 1, '[{\"added\": {}}]', 8, 1),
-(2, '2020-07-05 16:24:29.113265', '1', 'https://www.assurance-voiture-temporaire-provisoire.com/', 1, '[{\"added\": {}}]', 10, 1),
-(3, '2020-07-05 16:24:52.413674', '1', 'Theo Gaillard', 1, '[{\"added\": {}}]', 9, 1),
-(4, '2020-07-05 16:44:27.405544', '1', '127.0.0.2', 2, '[{\"changed\": {\"fields\": [\"Ip address\"]}}]', 8, 1),
-(5, '2020-07-05 16:47:57.367170', '2', '127.0.0.3', 2, '[{\"changed\": {\"fields\": [\"Ip address\"]}}]', 8, 1),
-(6, '2020-07-05 16:49:39.127141', '3', '127.0.0.2', 2, '[{\"changed\": {\"fields\": [\"Ip address\"]}}]', 8, 1),
-(7, '2020-07-05 16:50:32.603370', '4', '127.0.0.3', 2, '[{\"changed\": {\"fields\": [\"Ip address\"]}}]', 8, 1),
-(8, '2020-07-05 16:51:01.634217', '3', '127.0.0.1', 2, '[{\"changed\": {\"fields\": [\"Ip address\"]}}]', 8, 1),
-(9, '2020-07-05 16:57:26.573099', '3', '127.0.0.1', 3, '', 8, 1),
-(10, '2020-07-05 16:57:26.616457', '1', '127.0.0.2', 3, '', 8, 1),
-(11, '2020-07-05 16:57:26.621752', '4', '127.0.0.3', 3, '', 8, 1),
-(12, '2020-07-05 16:57:26.662673', '2', '127.0.0.3', 3, '', 8, 1),
-(13, '2020-07-05 16:57:40.285500', '6', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"Publish\"]}}]', 9, 1),
-(14, '2020-07-05 16:57:44.410682', '5', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"Publish\"]}}]', 9, 1),
-(15, '2020-07-05 16:57:48.378894', '4', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"Publish\"]}}]', 9, 1),
-(16, '2020-07-05 17:26:20.745448', '14', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"Publish\"]}}]', 9, 1),
-(17, '2020-07-05 17:26:36.562432', '13', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"Publish\"]}}]', 9, 1),
-(18, '2020-07-05 17:26:40.246168', '12', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"Publish\"]}}]', 9, 1),
-(19, '2020-07-05 17:26:45.738854', '11', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"Publish\"]}}]', 9, 1),
-(20, '2020-07-05 17:26:49.879529', '10', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"Publish\"]}}]', 9, 1),
-(21, '2020-07-05 17:26:53.247285', '9', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"Publish\"]}}]', 9, 1),
-(22, '2020-07-05 17:26:57.647265', '8', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"Publish\"]}}]', 9, 1),
-(23, '2020-07-05 17:27:02.080240', '7', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"Publish\"]}}]', 9, 1),
-(24, '2020-07-05 17:27:05.693605', '16', 'Theo Gaillard', 2, '[{\"changed\": {\"fields\": [\"Publish\"]}}]', 9, 1),
-(25, '2020-07-05 17:27:09.469418', '15', 'Theo Gaillard', 2, '[{\"changed\": {\"fields\": [\"Publish\"]}}]', 9, 1),
-(26, '2020-07-05 17:42:33.912784', '1', 'https://www.assurance-voiture-temporaire-provisoire.com/', 2, '[{\"changed\": {\"fields\": [\"Reviews day\"]}}]', 10, 1),
-(27, '2020-07-05 18:03:40.228181', '2', 'Span la base de donnees', 1, '[{\"added\": {}}]', 7, 1),
-(28, '2020-07-05 18:08:10.963884', '2', '127.0.0.1', 3, '', 7, 1),
-(29, '2020-07-05 19:44:23.072456', '18', 'Jean Marc Dhrair', 2, '[{\"changed\": {\"fields\": [\"Nombre d\'\\u00e9toile(s)\", \"L\'avis est public\"]}}]', 9, 1),
-(30, '2020-07-06 12:31:37.915502', '3', '127.0.0.1', 1, '[{\"added\": {}}]', 7, 1),
-(31, '2020-07-06 12:31:54.436513', '4', '127.0.0.1', 1, '[{\"added\": {}}]', 7, 1),
-(32, '2020-07-06 19:23:40.386376', '1', 'https://www.assurance-voiture-temporaire-provisoire.com/', 2, '[{\"changed\": {\"fields\": [\"Nombre d\'avis par Jour et par Ip\"]}}]', 10, 1),
-(33, '2020-07-06 19:25:51.741341', '3', '127.0.0.1', 3, '', 7, 1),
-(34, '2020-07-06 19:25:51.763347', '4', '127.0.0.1', 3, '', 7, 1),
-(35, '2020-07-06 19:26:23.646836', '29', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"L\'avis est public\"]}}]', 9, 1),
-(36, '2020-07-06 19:26:28.707123', '28', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"L\'avis est public\"]}}]', 9, 1),
-(37, '2020-07-06 19:26:33.082674', '30', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"L\'avis est public\"]}}]', 9, 1),
-(38, '2020-07-06 19:26:37.596902', '27', 'Paul Dupond', 2, '[{\"changed\": {\"fields\": [\"L\'avis est public\"]}}]', 9, 1),
-(39, '2020-07-07 18:40:48.862613', '2', 'https://www.assurance-chien-2eme-categorie.com/', 1, '[{\"added\": {}}]', 10, 1),
-(40, '2020-07-07 18:43:57.143710', '2', 'https://www.assurance-chien-2eme-categorie.com/', 2, '[{\"changed\": {\"fields\": [\"Cl\\u00e9e d\'api du site\"]}}]', 10, 1),
-(41, '2020-07-07 19:21:36.703512', '5', '127.0.0.1', 1, '[{\"added\": {}}]', 7, 1),
-(42, '2020-07-07 19:54:02.687206', '5', '127.0.0.1', 3, '', 7, 1),
-(43, '2020-07-07 20:04:07.115961', '1', 'https://www.assurance-voiture-temporaire-provisoire.com/', 2, '[]', 10, 1),
-(44, '2020-07-07 20:05:13.679761', '1', 'https://www.assurance-voiture-temporaire-provisoire.com/', 2, '[]', 10, 1),
-(45, '2020-07-07 20:05:54.888623', '1', 'https://www.assurance-voiture-temporaire-provisoire.com/', 2, '[]', 10, 1),
-(46, '2020-07-07 20:06:11.675615', '1', 'https://www.assurance-voiture-temporaire-provisoire.com/', 2, '[]', 10, 1),
-(47, '2020-07-07 20:06:17.325572', '1', 'https://www.assurance-voiture-temporaire-provisoire.com/', 2, '[]', 10, 1),
-(48, '2020-07-07 20:11:58.541712', '1', 'https://www.assurance-voiture-temporaire-provisoire.com/', 2, '[]', 10, 1),
-(49, '2020-07-07 20:17:33.920815', '2', 'https://www.assurance-chien-2eme-categorie.com/', 2, '[{\"changed\": {\"fields\": [\"Cl\\u00e9e d\'api du site\"]}}]', 10, 1),
-(50, '2020-07-07 20:24:56.535533', '1', 'https://www.assurance-voiture-temporaire-provisoire.com/', 2, '[]', 10, 1),
-(51, '2020-07-07 20:25:00.234911', '1', 'https://www.assurance-voiture-temporaire-provisoire.com/', 2, '[]', 10, 1),
-(52, '2020-07-08 07:45:05.960482', '1', 'https://www.assurance-voiture-temporaire-provisoire.com/', 2, '[]', 10, 1),
-(53, '2020-07-08 08:22:40.474694', '3', 'https://www.tele-assistance-senior.fr/', 1, '[{\"added\": {}}]', 10, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -243,22 +131,6 @@ CREATE TABLE `django_content_type` (
   `app_label` varchar(100) NOT NULL,
   `model` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `django_content_type`
---
-
-INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
-(1, 'admin', 'logentry'),
-(3, 'auth', 'group'),
-(2, 'auth', 'permission'),
-(4, 'auth', 'user'),
-(5, 'contenttypes', 'contenttype'),
-(7, 'Reviews', 'blacklist'),
-(10, 'Reviews', 'domainname'),
-(8, 'Reviews', 'iplist'),
-(9, 'Reviews', 'reviews'),
-(6, 'sessions', 'session');
 
 -- --------------------------------------------------------
 
@@ -311,13 +183,6 @@ CREATE TABLE `django_session` (
   `expire_date` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `django_session`
---
-
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('rzidnmkk3c6wkhw2h6grbpfs6v27d3zo', 'YTVlZDRmN2FjNjYwNWRjMzViZDhiYWNlYjIxMzhiYzI2MzkxMzk3NTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0YzZiOTFkZmNiMTViYjNkZDQyMTY4Yjk3YmQ1ZjY0MzQ0MTAyMmI3In0=', '2020-07-20 12:14:43.290509');
-
 -- --------------------------------------------------------
 
 --
@@ -366,13 +231,6 @@ CREATE TABLE `reviews_iplist` (
   `ip_address` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `reviews_iplist`
---
-
-INSERT INTO `reviews_iplist` (`id`, `ip_address`) VALUES
-(5, '127.0.0.1');
-
 -- --------------------------------------------------------
 
 --
@@ -390,51 +248,6 @@ CREATE TABLE `reviews_reviews` (
   `domain_id` int(11) NOT NULL,
   `ip_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `reviews_reviews`
---
-
-INSERT INTO `reviews_reviews` (`id`, `name`, `email`, `reviews`, `star`, `publish`, `date`, `domain_id`, `ip_id`) VALUES
-(4, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site d\'assurance en ligne', 4, 1, '2020-07-05 16:50:39.000000', 1, 5),
-(5, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site d\'assurance', 4, 1, '2020-07-05 16:50:51.000000', 1, 5),
-(6, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site d\'assurance', 4, 1, '2020-07-05 16:56:38.000000', 1, 5),
-(7, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site d\'assurance', 4, 1, '2020-07-05 17:01:57.000000', 1, 5),
-(8, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site d\'assurance', 4, 1, '2020-07-05 17:03:13.000000', 1, 5),
-(9, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site d\'assurance', 4, 1, '2020-07-05 17:05:54.000000', 1, 5),
-(10, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site d\'assurance', 4, 1, '2020-07-05 17:06:26.000000', 1, 5),
-(11, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site d\'assurance', 4, 1, '2020-07-05 17:08:38.000000', 1, 5),
-(12, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site d\'assurance', 4, 1, '2020-07-05 17:08:52.000000', 1, 5),
-(13, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site d\'assurance', 4, 1, '2020-07-05 17:09:02.000000', 1, 5),
-(14, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site d\'assurance', 4, 1, '2020-07-05 17:09:55.000000', 1, 5),
-(15, 'Theo Gaillard', 'theo.h@free.fr', 'Super site', 5, 1, '2020-07-05 17:14:03.000000', 1, 5),
-(16, 'Theo Gaillard', 'theo.h@free.fr', 'Super site', 5, 1, '2020-07-05 17:15:00.000000', 1, 5),
-(17, 'Theo Gaillard', 'theo.g.31@free.fr', 'Super bon site teste depuis la page de teste', 3, 0, '2020-07-05 17:42:55.372467', 1, 5),
-(18, 'Jean Marc Dhrair', 'Jm31@gmail.fr', 'Super bon site j\'ai eu mon aussurance rapidement', 1, 1, '2020-07-05 18:02:44.000000', 1, 5),
-(19, 'Theo Gaillard', 'theo.g.31@free.fr', 'dfgxxxxxxxxxxxxxxxxxxxxxxxx', 2, 0, '2020-07-05 19:33:13.857296', 1, 5),
-(20, 'Theo Gaillard', 'theo.g.31@free.fr', 'Super bon site', 3, 0, '2020-07-05 19:39:46.860843', 1, 5),
-(21, 'Theo Gaillard', 'theo.g.31@free.fr', '\"<script>alert(\'Faille xss\')', 5, 0, '2020-07-05 19:41:19.719464', 1, 5),
-(22, 'Theo Gaillard', 'theo.g.31@free.fr', 'Super bon site', 4, 0, '2020-07-05 19:55:44.574913', 1, 5),
-(23, 'Theo Gaillard', 'theo.g.31@free.fr', 'Super site d\'assurance', 5, 0, '2020-07-05 19:56:12.914864', 1, 5),
-(24, 'Theo Gaillard', 'theo.g.31@free.fr', 'sssssssssssssssssssssssssssssss', 4, 0, '2020-07-05 20:20:02.836983', 1, 5),
-(25, 'Paul Dupond', 'PaulDupond@free.fr', 'Super bon site, j\'ai eu rapidement mon contrat.', 3, 0, '2020-07-06 11:07:46.557505', 1, 5),
-(26, 'Paul Dupond', 'PaulDupond@free.fr', 'Super bon site, j\'ai eu rapidement mon contrat.', 3, 0, '2020-07-06 11:08:05.753382', 1, 5),
-(27, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site d\'', 3, 1, '2020-07-06 11:11:47.000000', 1, 5),
-(28, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site a', 2, 1, '2020-07-06 11:14:04.000000', 1, 5),
-(29, 'Paul Dupond', 'PaulDupond@free.fr', 'Super site a', 2, 1, '2020-07-06 11:14:05.000000', 1, 5),
-(30, 'Paul Dupond', 'PaulDupond@free.fr', 'Testetestedfddd', 3, 1, '2020-07-06 11:15:40.000000', 1, 5),
-(31, 'Paul Dupond', 'PaulDupond@free.fr', 'sssssssssssssssssssssssssssssssssssss', 4, 0, '2020-07-06 11:16:52.598040', 1, 5),
-(32, 'Theo Gaillard', 'theo.g.31@free.fr', 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', 3, 0, '2020-07-06 11:17:29.007959', 1, 5),
-(33, 'Theo Gaillard', 'theo.g.31@free.fr', 'sddddddddddddddddddddddddd', 3, 0, '2020-07-06 11:19:38.142379', 1, 5),
-(34, 'Theo Gaillard', 'theo.g.31@free.fr', 'sddddddddddddddddddddddddd', 3, 0, '2020-07-06 11:19:41.061824', 1, 5),
-(35, 'Theo Gaillard', 'theo.g.31@free.fr', 'sddddddddddddddddddddddddd', 3, 0, '2020-07-06 11:19:43.663998', 1, 5),
-(36, 'Theo Gaillard', 'theo.g.31@free.fr', 'fffffffffffffffffffffff', 4, 0, '2020-07-06 11:20:13.691404', 1, 5),
-(37, 'Theo Gaillard', 'theo.g.31@free.fr', 'fffffffffffffffffffffff', 4, 0, '2020-07-06 11:20:16.178025', 1, 5),
-(38, 'Theo Gaillard', 'theo.g.31@free.fr', 'cfvvvvvvvvvvvvvvvvvv', 3, 0, '2020-07-06 11:23:02.728226', 1, 5),
-(39, 'Theo Gaillard', 'theo.g.31@free.fr', 'cfvvvvvvvvvvvvvvvvvv', 3, 0, '2020-07-06 11:23:03.675730', 1, 5),
-(40, 'Theo Gaillard', 'theo.g.31@free.fr', 'cfvvvvvvvvvvvvvvvvvv', 3, 0, '2020-07-06 11:23:06.373679', 1, 5),
-(41, 'Theo Gaillard', 'theo.g.31@free.fr', 'jjjjjjjjjjjjjjjjjjjjjjjj', 3, 0, '2020-07-06 11:25:21.625439', 1, 5),
-(42, 'Theo Gaillard', 'theo.g.31@free.fr', 'Super bon site d\'assurance en ligne', 4, 0, '2020-07-08 08:14:40.416462', 1, 5);
 
 --
 -- Index pour les tables déchargées
@@ -561,13 +374,13 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT pour la table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `auth_user_groups`
@@ -585,13 +398,13 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT pour la table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `django_migrations`
@@ -603,7 +416,7 @@ ALTER TABLE `django_migrations`
 -- AUTO_INCREMENT pour la table `reviews_blacklist`
 --
 ALTER TABLE `reviews_blacklist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `reviews_domainname`
@@ -615,13 +428,13 @@ ALTER TABLE `reviews_domainname`
 -- AUTO_INCREMENT pour la table `reviews_iplist`
 --
 ALTER TABLE `reviews_iplist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `reviews_reviews`
 --
 ALTER TABLE `reviews_reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées

@@ -20,7 +20,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = '!k5gc%s3%4gkow4_ykrq3r4wb712fhog0w7o=#=p%i#uu8ba+5'
 SECRET_KEY = 'gpet^tbkj=@wz5ek36%5rojk4iq-95q#q9*4zh9m34#5uns=y7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -135,12 +134,7 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_ALLOW_ALL = True  # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8080',
-]  # If this is used, then not need to use `CORS_ORIGIN_ALLOW_ALL = True`
-CORS_ORIGIN_REGEX_WHITELIST = [
-    'http://localhost:8080',
-]
-
+CORS_ORIGIN_WHITELIST = ['http://localhost:8080', ]
+CORS_ORIGIN_REGEX_WHITELIST = ['http://localhost:8080', ]
 # EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 # EMAIL_FILE_PATH = '/tmp/' # change this to a proper location
