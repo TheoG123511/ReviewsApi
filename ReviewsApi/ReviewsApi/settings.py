@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECRET_KEY = '!k5gc%s3%4gkow4_ykrq3r4wb712fhog0w7o=#=p%i#uu8ba+5'
 SECRET_KEY = 'gpet^tbkj=@wz5ek36%5rojk4iq-95q#q9*4zh9m34#5uns=y7'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
+# variable a modifier remplacer * par le nom de domaine sur lequels sera héberger l'api ou par l'ip du serveur
 ALLOWED_HOSTS = ["*"]
 
 
